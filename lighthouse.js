@@ -24,8 +24,21 @@ client.on('message', message => {
 		message.channel.send(`Your username: ${message.author.username}\nYour ID: ${message.author.id}`);
 	} else if (message.content === `${prefix}kick`) {
 		message.channel.send('This Command is Under Maintenance.');
+		if (message.author.hasPermission('BAN_MEMBERS')) {
+			message.channel.send('This Command is Under Maintenance.');
+			// ban people
+		}
+		else{
+			message.channel.send('You do not have the required permissions!');
+		}
 	} else if (message.content === `${prefix}ban`) {
-		message.channel.send('This Command is Under Maintenance.');
+		if (message.author.hasPermission('KICK_MEMBERS')) {
+			message.channel.send('This Command is Under Maintenance.');
+			// kick people
+		}
+		else{
+			message.channel.send('You do not have the required permissions!');
+		}
 	} else if (message.content === `${prefix}tag`) {
 		message.channel.send('[GYYT] --> https://discord.gg/D7hqtp3');
 	} else if (command === 'avatar') {
